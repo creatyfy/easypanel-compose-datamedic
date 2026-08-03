@@ -111,7 +111,7 @@ services:
       SERVICE_ROLE_KEY_ASYMMETRIC: ${SERVICE_ROLE_KEY_ASYMMETRIC:-}
       DASHBOARD_USERNAME: ${DASHBOARD_USERNAME}
       DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD}
-    entrypoint: /home/kong/kong-entrypoint.sh
+    entrypoint: ["bash", "/home/kong/kong-entrypoint.sh"]
 
   auth:
     image: supabase/gotrue:v2.186.0
