@@ -26,6 +26,7 @@ services:
       timeout: 10s
       interval: 5s
       retries: 3
+      start_period: 120s
     environment:
       #  Listen on all IPv4 interfaces
       HOSTNAME: "0.0.0.0"
@@ -83,9 +84,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    depends_on:
-      studio:
-        condition: service_healthy
+      start_period: 120s
     volumes:
       # https://github.com/supabase/supabase/issues/12661
       - ./volumes/api/kong.yml:/home/kong/temp.yml:ro,z
@@ -130,6 +129,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 3
+      start_period: 120s
     depends_on:
       db:
         # Disable this if you are using an external Postgres database
